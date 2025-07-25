@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Minha Web Rádio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    #titulo {
+      font-size: 20px;
+      margin: 20px 0;
+      color: green;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Minha Web Rádio</h1>
+
+  <div id="titulo">Carregando música...</div>
+
+  <audio id="player" controls></audio>
+
+  <div>
+    <button onclick="voltar()">⏮️ Anterior</button>
+    <button onclick="tocarOuPausar()">⏯️ Tocar / Pausar</button>
+    <button onclick="proxima()">⏭️ Próxima</button>
+  </div>
+
+  <script>
+    const musicas = [
+      { nome: "Cabelão Preto", arquivo: "musicas/musica1.mp3" },
+      { nome: "O Bagual Chorou", arquivo: "musicas/musica2.mp3" },
+      { nome: "Nas Flores do Jardim", arquivo: "musicas/musica3.mp3" },
+	  { nome: "Falta você", arquivo: "musicas/musica4.mp3" },
+	  { nome: "Reinventar / A Carta", arquivo: "musicas/musica5.mp3" },
+	  { nome: "Temporal / Velocidade da luz", arquivo: "musicas/musica6.mp3" },
+	  { nome: "Em busca da minha sorte", arquivo: "musicas/musica7.mp3" }
+	];
+
+    let indice = 0;
+    const player = document.getElementById("player");
+    const titulo = document.getElementById("titulo");
+
+    function tocarMusica() {
+      const musicaAtual = musicas[indice];
+      player.src = musicaAtual.arquivo;
+      titulo.textContent = "Tocando agora: " + musicaAtual.nome;
+      player.play().catch((erro) => {
+        console.error("Erro ao tocar:", erro);
+      });
+    }
+
+    function proxima() {
+      indice = (indice + 1) % musicas.length;
+      tocarMusica();
+    }
+
+    function voltar() {
+      indice = (indice - 1 + musicas.length) % musicas.length;
+      tocarMusica();
+    }
+
+    function tocarOuPausar() {
+      if (player.paused) {
+        player.play();
+      } else {
+        player.pause();
+      }
+    }
+
+    player.addEventListener("ended", proxima);
+
+    // Inicia ao carregar a página
+    window.addEventListener("load", () => {
+      tocarMusica();
+    });
+  </script>
+</body>
+</html>

@@ -28,6 +28,33 @@
 		  <p>"Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos." <italic>"Provérbios 16:3"</italic></p>
  </div>
 
+const mensagens = [
+  "Você é especial pra Deus ✝️✨",
+  "Todo ponto de vista é a vista de um ponto. — Leonardo Boff",
+  "Só sei que nada sei. — Sócrates",
+  "Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos. — Provérbios 16:3",
+  "Deus transforma choro em força 🙏",
+  "Tudo posso naquele que me fortalece. — Filipenses 4:13"
+];
+
+let mensagemAtual = 0;
+const campoMensagem = document.getElementById("mensagem");
+
+function trocarMensagem() {
+  campoMensagem.style.animation = "none"; // Reinicia animação
+  void campoMensagem.offsetWidth; // Força reflow
+  campoMensagem.textContent = mensagens[mensagemAtual];
+  campoMensagem.style.animation = "deslizarMensagem 60s linear infinite";
+
+  mensagemAtual = (mensagemAtual + 1) % mensagens.length;
+}
+
+// Troca a cada 60 segundos
+setInterval(trocarMensagem, 60000);
+
+// Inicia a primeira
+trocarMensagem();
+	
   <script>
     const musicas = [
       	  { nome: "Cabelão Preto", arquivo: "musica/musica1.mp3" },

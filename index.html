@@ -4,14 +4,103 @@
   <meta charset="UTF-8">
   <title>Web Rádio Denis</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #6a0dad;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: white;
+      max-width: 90%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #titulo {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #ffffcc;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .botoes button {
+      background-color: #ffffff33;
+      border: none;
+      padding: 12px 18px;
+      font-size: 20px;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .botoes button:hover {
+      background-color: #ffffff66;
+    }
+
+    .letreiro {
+      width: 100%;
+      background-color: #6a0dad;
+      border: 3px solid cyan;
+      box-sizing: border-box;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      padding-left: 100%;
+      margin-top: 30px;
+    }
+
+    #mensagem {
+      color: white;
+      font-size: 20px;
+      white-space: nowrap;
+      animation: deslizarMensagem 60s linear;
+    }
+
+    @keyframes deslizarMensagem {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-200%);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>🎧 Web Rádio Denis</h1>
     <p id="titulo">Carregando música...</p>
-    
+
     <audio id="player" controls></audio>
-    
+
     <div class="botoes">
       <button onclick="voltar()">⏮️</button>
       <button onclick="tocarOuPausar()">⏯️</button>
@@ -20,45 +109,43 @@
     </div>
   </div>
 
-<div class="letreiro">
-  <div class="frases">
-	  	  <p>Você é especial pra Deus ✝️✨</p>
-		  <p>"Todo Ponto de vista é a Vista de um Ponto."<italic>Leonardo Boff</italic> ✨</p>
-		  <p>"Só sei que nada sei." <italic>Sócrates</italic> ✨</p>
-		  <p>"Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos." <italic>"Provérbios 16:3"</italic></p>
- </div>
+  <div class="letreiro">
+    <p id="mensagem">Você é especial pra Deus ✝️✨</p>
+  </div>
 
   <script>
     const musicas = [
-      	  { nome: "Cabelão Preto", arquivo: "musica/musica1.mp3" },
-          { nome: "O Bagual Chorou", arquivo: "musica/musica2.mp3" },
-          { nome: "Nas Flores do Jardim", arquivo: "musica/musica3.mp3" },
-	  { nome: "Falta você", arquivo: "musica/musica4.mp3" },
-	  { nome: "Reinventar / A Carta", arquivo: "musica/musica5.mp3" },
-	  { nome: "Temporal / Velocidade da luz", arquivo: "musica/musica6.mp3" },
-	  { nome: "Em busca da minha sorte", arquivo: "musica/musica7.mp3" },
-	  { nome: "CORAÇÃO NA GOELA - Sorriso Lindo", arquivo: "musica/musica8.mp3"},
-	  { nome: "Campeão Vencedor, Deus da Asas, Faz Seu Vôo _ Conquistando o Impossível _ Jamily", arquivo: "musica/musica9.mp3"},
-	  { nome: "RICKY VALLEN - Com Muito Louvor", arquivo: "musica/musica10.mp3"},
-	  { nome: "Fé - Roberto Carlos", arquivo: "musica/musica11.mp3"},
-	  { nome: "PÉRICLES - ATÉ QUE DUROU (AO VIVO)", arquivo: "musica/musica12.mp3"},
-	  { nome: "Davi Lukato (Coração Valente)", arquivo: "musica/musica13.mp3"},
-	  { nome: "Tava Tudo Bem", arquivo: "musica/musica14.mp3"},
-	  { nome: "Maria Marçal - Deixa", arquivo: "musica/musica15.mp3"},
-	  { nome: "Sobre as Águas", arquivo: "musica/musica16.mp3"},
-	  { nome: "SÓ FALTA VOCÊ - Sorriso Lindo", arquivo: "musica/musica17.mp3"},
-	  { nome: "Maria Marçal _ Deserto", arquivo: "musica/musica18.mp3"},
-	  { nome: "Ricky Vallen - Hino da Vitória", arquivo: "musica/musica19.mp3"},
-	  { nome: "", arquivo: "musica/musica20.mp3"},
-	  { nome: "", arquivo: "musica/musica21.mp3"},
-	  { nome: "", arquivo: "musica/musica23.mp3"},
-	  { nome: "", arquivo: "musica/musica24.mp3"},
-	  { nome: "", arquivo: "musica/musica25.mp3"},
-	  { nome: "", arquivo: "musica/musica26.mp3"},
-	  { nome: "", arquivo: "musica/musica27.mp3"},
-	  { nome: "", arquivo: "musica/musica28.mp3"},
-	  { nome: "", arquivo: "musica/musica29.mp3"}
-	];
+      { nome: "Cabelão Preto", arquivo: "musica/musica1.mp3" },
+      { nome: "O Bagual Chorou", arquivo: "musica/musica2.mp3" },
+      { nome: "Nas Flores do Jardim", arquivo: "musica/musica3.mp3" },
+      { nome: "Falta você", arquivo: "musica/musica4.mp3" },
+      { nome: "Reinventar / A Carta", arquivo: "musica/musica5.mp3" },
+      { nome: "Temporal / Velocidade da luz", arquivo: "musica/musica6.mp3" },
+      { nome: "Em busca da minha sorte", arquivo: "musica/musica7.mp3" },
+      { nome: "CORAÇÃO NA GOELA - Sorriso Lindo", arquivo: "musica/musica8.mp3" },
+      { nome: "Campeão Vencedor - Jamily", arquivo: "musica/musica9.mp3" },
+      { nome: "RICKY VALLEN - Com Muito Louvor", arquivo: "musica/musica10.mp3" },
+      { nome: "Fé - Roberto Carlos", arquivo: "musica/musica11.mp3" },
+      { nome: "PÉRICLES - ATÉ QUE DUROU (AO VIVO)", arquivo: "musica/musica12.mp3" },
+      { nome: "Davi Lukato - Coração Valente", arquivo: "musica/musica13.mp3" },
+      { nome: "Tava Tudo Bem", arquivo: "musica/musica14.mp3" },
+      { nome: "Maria Marçal - Deixa", arquivo: "musica/musica15.mp3" },
+      { nome: "Sobre as Águas", arquivo: "musica/musica16.mp3" },
+      { nome: "SÓ FALTA VOCÊ - Sorriso Lindo", arquivo: "musica/musica17.mp3" },
+      { nome: "Maria Marçal - Deserto", arquivo: "musica/musica18.mp3" },
+      { nome: "Sucesso19", arquivo: "musica/musica19.mp3" },
+      { nome: "RSucesso20", arquivo: "musica/musica20.mp3" },
+      { nome: "Sucesso21", arquivo: "musica/musica21.mp3" },
+	  { nome: "Sucesso22", arquivo: "musica/musica22.mp3" },
+	  { nome: "Sucesso23", arquivo: "musica/musica23.mp3" },
+	  { nome: "Sucesso24", arquivo: "musica/musica24.mp3" },
+	  { nome: "Sucesso25", arquivo: "musica/musica25.mp3" },
+	  { nome: "Sucesso26", arquivo: "musica/musica26.mp3" },
+	  { nome: "Sucesso27", arquivo: "musica/musica27.mp3" },
+	  { nome: "Sucesso28", arquivo: "musica/musica28.mp3" },
+	  { nome: "Sucesso29", arquivo: "musica/musica29.mp3" }
+	  
+    ];
 
     let indice = 0;
     const player = document.getElementById("player");
@@ -101,34 +188,28 @@
     player.addEventListener("ended", proxima);
     window.addEventListener("load", () => tocarMusica(indice));
 
-	  const mensagens = [
-  "Você é especial pra Deus ✝️✨",
-  "Todo ponto de vista é a vista de um ponto. — Leonardo Boff",
-  "Só sei que nada sei. — Sócrates",
-  "Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos. — Provérbios 16:3",
-  "Deus transforma choro em força 🙏",
-  "Tudo posso naquele que me fortalece. — Filipenses 4:13"
-];
+    // Letreiro animado
+    const mensagens = [
+      "Você é especial pra Deus ✝️✨",
+      "Todo ponto de vista é a vista de um ponto. — Leonardo Boff",
+      "Só sei que nada sei. — Sócrates",
+      "Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos. — Provérbios 16:3",
+      "Tudo posso naquele que me fortalece. — Filipenses 4:13"
+    ];
 
-let mensagemAtual = 0;
-const campoMensagem = document.getElementById("mensagem");
+    let mensagemAtual = 0;
+    const campoMensagem = document.getElementById("mensagem");
 
-function trocarMensagem() {
-  campoMensagem.style.animation = "none"; // Reinicia animação
-  void campoMensagem.offsetWidth; // Força reflow
-  campoMensagem.textContent = mensagens[mensagemAtual];
-  campoMensagem.style.animation = "deslizarMensagem 60s linear infinite";
+    function iniciarLetreiro() {
+      campoMensagem.textContent = mensagens[mensagemAtual];
+      campoMensagem.style.animation = "none"; // reset
+      void campoMensagem.offsetWidth; // reflow
+      campoMensagem.style.animation = "deslizarMensagem 60s linear";
+      mensagemAtual = (mensagemAtual + 1) % mensagens.length;
+      setTimeout(iniciarLetreiro, 60000);
+    }
 
-  mensagemAtual = (mensagemAtual + 1) % mensagens.length;
-}
-
-// Troca a cada 60 segundos
-setInterval(trocarMensagem, 60000);
-
-// Inicia a primeira
-trocarMensagem();
-	  
+    iniciarLetreiro();
   </script>
-
 </body>
 </html>

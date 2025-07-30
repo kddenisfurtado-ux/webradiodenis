@@ -1,20 +1,24 @@
+/* Fundo geral da página */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #007991, #78ffd6);
-  color: white;
+  background-color: #f0f0f0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  min-height: 100vh;
 }
 
+/* Quadro principal com fundo roxo */
 .container {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #6a0dad; /* roxo */
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 20px #00000088;
+  text-align: center;
+  color: white;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 h1 {
@@ -35,6 +39,7 @@ audio {
 .botoes {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -53,3 +58,30 @@ audio {
   background-color: #ffffff66;
 }
 
+/* Letreiro inferior */
+.letreiro {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #6a0dad;
+  border: 3px solid cyan;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.letreiro p {
+  display: inline-block;
+  padding: 10px 0;
+  color: white;
+  font-size: 20px;
+  animation: deslizar 10s linear infinite;
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

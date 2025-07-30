@@ -66,7 +66,7 @@ audio {
   padding: 10px 20px;
   border-radius: 8px;
   margin: 0 auto;
-  width: 300px; /* ou o mesmo valor da player-box */
+  width: 500px; /* ou o mesmo valor da player-box */
   text-align: center;
   font-weight: bold;
 }

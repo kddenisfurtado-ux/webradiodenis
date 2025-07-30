@@ -74,7 +74,7 @@ audio {
   padding: 10px 0;
   color: white;
   font-size: 20px;
-  animation: deslizar 50s linear infinite;
+  animation: deslizar 20s linear infinite;
 }
 
 @keyframes deslizar {

@@ -88,7 +88,7 @@ audio {
 
 .player-box {
  /* position: fixed; */
-  top: 60px; /* ajuste conforme desejar */
+  top: 10px; /* ajuste conforme desejar */
   left: 50%;
   transform: translateX(-50%);
   background-color: #6600cc;

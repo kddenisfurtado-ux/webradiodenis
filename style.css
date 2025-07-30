@@ -61,7 +61,7 @@ audio {
 /* Letreiro inferior */
 .letreiro {
   margin-top: 40px;
-  width: 50%;
+  width: 70%;
   background-color: #6a0dad;
   border: 3px solid cyan;
   overflow: hidden;
@@ -74,7 +74,7 @@ audio {
   padding: 10px 0;
   color: white;
   font-size: 20px;
-  animation: deslizar 10s linear infinite;
+  animation: deslizar 30s linear infinite;
 }
 
 @keyframes deslizar {

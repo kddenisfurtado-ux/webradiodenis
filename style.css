@@ -59,22 +59,29 @@ audio {
 }
 
 /* Letreiro inferior */
+
 .letreiro {
-  margin-top: 40px;
-  width: 70%;
+  width: 100%;
   background-color: #6a0dad;
   border: 3px solid cyan;
   overflow: hidden;
-  white-space: nowrap;
   box-sizing: border-box;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
-.letreiro p {
+.frases {
   display: inline-block;
-  padding: 10px 0;
+  white-space: nowrap;
+  animation: deslizar 60s linear infinite;
+}
+
+.frases p {
+  display: inline;
+  margin: 0 50px; /* espaço entre as frases */
+  font-size: 18px;
   color: white;
-  font-size: 20px;
-  animation: deslizar 30s linear infinite;
 }
 
 @keyframes deslizar {

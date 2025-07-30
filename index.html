@@ -2,40 +2,22 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Web Radio DENIS</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-    #titulo {
-      font-size: 20px;
-      margin: 20px 0;
-      color: green;
-    }
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+  <title>Web Rádio Denis</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎵 WEB RADIO - DENIS</h1>
-
-  <div id="titulo">Carregando música...</div>
-
-  <audio id="player" controls></audio>
-
-  <div>
-    <button onclick="voltar()">⏮️ Anterior</button>
-    <button onclick="tocarOuPausar()">⏯️ Tocar / Pausar</button>
-    <button onclick="proxima()">⏭️ Próxima</button>
+  <div class="container">
+    <h1>🎧 Web Rádio Denis</h1>
+    <p id="titulo">Carregando música...</p>
+    
+    <audio id="player" controls></audio>
+    
+    <div class="botoes">
+      <button onclick="voltar()">⏮️</button>
+      <button onclick="tocarOuPausar()">⏯️</button>
+      <button onclick="proxima()">⏭️</button>
+      <button onclick="tocarAleatorio()">🔀</button>
+    </div>
   </div>
 
   <script>
@@ -63,30 +45,32 @@
 	  { nome: "", arquivo: "musica/musica21.mp3"},
 	  { nome: "", arquivo: "musica/musica23.mp3"},
 	  { nome: "", arquivo: "musica/musica24.mp3"},
-	  { nome: "", arquivo: "musica/musica25.mp3"}
+	  { nome: "", arquivo: "musica/musica25.mp3"},
+	  { nome: "", arquivo: "musica/musica26.mp3"},
+	  { nome: "", arquivo: "musica/musica27.mp3"},
+	  { nome: "", arquivo: "musica/musica28.mp3"},
+	  { nome: "", arquivo: "musica/musica29.mp3"}
 	];
 
     let indice = 0;
     const player = document.getElementById("player");
     const titulo = document.getElementById("titulo");
 
-    function tocarMusica() {
-      const musicaAtual = musicas[indice];
-      player.src = musicaAtual.arquivo;
-      titulo.textContent = "Tocando agora: " + musicaAtual.nome;
-      player.play().catch((erro) => {
-        console.error("Erro ao tocar:", erro);
-      });
+    function tocarMusica(index) {
+      const musica = musicas[index];
+      player.src = musica.arquivo;
+      titulo.textContent = "🎵 Tocando: " + musica.nome;
+      player.play().catch((e) => console.error("Erro ao tocar:", e));
     }
 
     function proxima() {
       indice = (indice + 1) % musicas.length;
-      tocarMusica();
+      tocarMusica(indice);
     }
 
     function voltar() {
       indice = (indice - 1 + musicas.length) % musicas.length;
-      tocarMusica();
+      tocarMusica(indice);
     }
 
     function tocarOuPausar() {
@@ -97,12 +81,17 @@
       }
     }
 
-    player.addEventListener("ended", proxima);
+    function tocarAleatorio() {
+      let novoIndice;
+      do {
+        novoIndice = Math.floor(Math.random() * musicas.length);
+      } while (novoIndice === indice && musicas.length > 1);
+      indice = novoIndice;
+      tocarMusica(indice);
+    }
 
-    // Inicia ao carregar a página
-    window.addEventListener("load", () => {
-      tocarMusica();
-    });
+    player.addEventListener("ended", proxima);
+    window.addEventListener("load", () => tocarMusica(indice));
   </script>
 </body>
 </html>

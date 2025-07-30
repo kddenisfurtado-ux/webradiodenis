@@ -6,7 +6,7 @@ body {
  /* display: flex; */
   flex-direction: column;
   align-items: center;
- /* justify-content: center; */
+ justify-content: center;
  /* min-height: 200vh; */
 }
 
@@ -32,7 +32,7 @@ h1 {
 }
 
 audio {
-  width: 100%;
+  width: 50%;
   margin-bottom: 20px;
 }
 

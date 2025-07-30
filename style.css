@@ -61,7 +61,7 @@ audio {
 /* Letreiro inferior */
 .letreiro {
   margin-top: 40px;
-  width: 100%;
+  width: 50%;
   background-color: #6a0dad;
   border: 3px solid cyan;
   overflow: hidden;

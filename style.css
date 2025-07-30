@@ -1,6 +1,6 @@
 /* Fundo geral da página */
 body {
-  margin: 0;
+  margin: 40px;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f0f0f0;
  /* display: flex; */
@@ -88,11 +88,11 @@ audio {
 
 .player-box {
  /* position: fixed; */
-  top: 40px; /* ajuste conforme desejar */
+  top: 60px; /* ajuste conforme desejar */
   left: 50%;
   transform: translateX(-50%);
   background-color: #6600cc;
-  padding: 30px;
+  padding: 40px;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

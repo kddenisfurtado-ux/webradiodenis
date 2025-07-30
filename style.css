@@ -61,17 +61,15 @@ audio {
 /* Letreiro inferior */
 
 .letreiro {
-  width: 100%;
-  background-color: #6a0dad;
-  border: 3px solid cyan;
-  box-sizing: border-box;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  background: linear-gradient(to right, #6600cc, #9900ff);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  width: 300px; /* ou o mesmo valor da player-box */
+  text-align: center;
+  font-weight: bold;
 }
-
 #mensagem {
   color: white;
   font-size: 20px;

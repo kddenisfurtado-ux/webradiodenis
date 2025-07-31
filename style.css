@@ -12,9 +12,9 @@ body {
 
 /* Quadro principal com fundo roxo */
 .container {
-  background-color: #6a0dad; /* roxo */
+  background-color: #000000; /* roxo */
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   color: white;
   max-width: 90%;
@@ -61,18 +61,15 @@ audio {
 /* Letreiro inferior */
 
 .letreiro {
-	margin: 40px;
-	font-family: 'Segoe UI', sans-serif;
-	background: linear-gradient(to right, #6600cc, #9900ff);
-	color: white;
-	flex-direction: column;
-	padding: 30px 30px;
-	border-radius: 15px;
-	align-items: center;
-	margin: 0 auto;
-  /*width: 800px; /* ou o mesmo valor da player-box */ 
-  /* text-align: center; */
-	font-weight: bold;
+  background-color: #000000; /* roxo */
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
 }
 #mensagem {
   color: white;

@@ -3,15 +3,16 @@ body {
   margin: 40px;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f0f0f0;
-  display: flex;
+ /* display: flex; */
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+ justify-content: center;
+ /* min-height: 200vh; */
 }
 
-/* Quadro principal com fundo escuro */
+/* Quadro principal com fundo roxo */
 .container {
-  background-color: #000000; /* fundo preto */
+  background-color: #000000; /* roxo */
   padding: 30px;
   border-radius: 20px;
   text-align: center;
@@ -58,8 +59,9 @@ audio {
 }
 
 /* Letreiro inferior */
+
 .letreiro {
-  background-color: #000000;
+  background-color: #000000; /* roxo */
   padding: 30px;
   margin-top: 30px;
   border-radius: 20px;
@@ -68,7 +70,7 @@ audio {
   max-width: 90%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
-
+}
 #mensagem {
   color: white;
   font-size: 20px;
@@ -85,9 +87,9 @@ audio {
   }
 }
 
-/* Caixa do player fixa (caso queira usar no futuro) */
 .player-box {
-  top: 10px;
+ /* position: fixed; */
+  top: 10px; /* ajuste conforme desejar */
   left: 50%;
   transform: translateX(-50%);
   background-color: #6600cc;

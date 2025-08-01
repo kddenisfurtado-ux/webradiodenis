@@ -18,29 +18,120 @@
       <button onclick="proxima()">⏭️</button>
       <button onclick="tocarAleatorio()">🔀</button>
     </div>
-
-    <div class="letreiro">
-      <p id="mensagem">Você é especial pra Deus ✝️✨</p>
-    </div>
-
-    <div class="menu">
-      <a href="paggospel.html">🎶 Músicas Gospel</a> |
-      <a href="pagsertanejo.html">🎵 Sertanejo</a> |
-      <a href="pagrock.html">🎸 Rock Nacional</a>
-    </div>
   </div>
 
-  <!-- Define a lista de músicas antes do script -->
+  <div class="letreiro">
+    <p id="mensagem">Você é especial pra Deus ✝️✨</p>
+  </div>
+  <div>
+	<a href="/paggospel.html">Musica Gospel</a>
+  </div>
+
+</div>
   <script>
     const musicas = [
       { nome: "Cabelão Preto", arquivo: "musica/musica1.mp3" },
       { nome: "O Bagual Chorou", arquivo: "musica/musica2.mp3" },
       { nome: "Nas Flores do Jardim", arquivo: "musica/musica3.mp3" },
       { nome: "Falta você", arquivo: "musica/musica4.mp3" },
-      { nome: "Reinventar / A Carta", arquivo: "musica/musica5.mp3" }
-      // adicione mais músicas conforme necessário
+      { nome: "Reinventar / A Carta", arquivo: "musica/musica5.mp3" },
+      { nome: "Temporal / Velocidade da luz", arquivo: "musica/musica6.mp3" },
+      { nome: "Em busca da minha sorte", arquivo: "musica/musica7.mp3" },
+      { nome: "CORAÇÃO NA GOELA - Sorriso Lindo", arquivo: "musica/musica8.mp3" },
+      { nome: "Campeão Vencedor - Jamily", arquivo: "musica/musica9.mp3" },
+      { nome: "RICKY VALLEN - Com Muito Louvor", arquivo: "musica/musica10.mp3" },
+      { nome: "Fé - Roberto Carlos", arquivo: "musica/musica11.mp3" },
+      { nome: "PÉRICLES - ATÉ QUE DUROU (AO VIVO)", arquivo: "musica/musica12.mp3" },
+      { nome: "Davi Lukato - Coração Valente", arquivo: "musica/musica13.mp3" },
+      { nome: "Tava Tudo Bem", arquivo: "musica/musica14.mp3" },
+      { nome: "Maria Marçal - Deixa", arquivo: "musica/musica15.mp3" },
+      { nome: "Sobre as Águas", arquivo: "musica/musica16.mp3" },
+      { nome: "SÓ FALTA VOCÊ - Sorriso Lindo", arquivo: "musica/musica17.mp3" },
+      { nome: "Maria Marçal - Deserto", arquivo: "musica/musica18.mp3" },
+      { nome: "Sucesso19", arquivo: "musica/musica19.mp3" },
+      { nome: "Quando o Sol bater na Janela do seu quarto", arquivo: "musica/musica20.mp3" },
+      { nome: "Me vou pra vaneira", arquivo: "musica/musica21.mp3" },
+      { nome: "Te ver", arquivo: "musica/musica22.mp3" },
+	  { nome: "Sucesso Nirvana - Sabe qual é?", arquivo: "musica/musica23.mp3" },
+	  { nome: "Astronauta de mármore", arquivo: "musica/musica24.mp3" },
+	  { nome: "Roda de Chimarrão / Nós", arquivo: "musica/musica25.mp3" },
+	  { nome: "Sucesso Gun's - Top de mais né?", arquivo: "musica/musica26.mp3" },
+	  { nome: "Tempo perdido", arquivo: "musica/musica27.mp3" },
+	  { nome: "Fundo da grota", arquivo: "musica/musica28.mp3" },
+	  { nome: "Sucesso29", arquivo: "musica/musica29.mp3" },
+	  { nome: "Paredes Pintadas", arquivo: "musica/musica30.mp3" },
+          { nome: "Sou Eu / Pra não pensar em você", arquivo: "musica/musica31.mp3" },
+          { nome: "Equivocada", arquivo: "musica/musica32.mp3" },
+          { nome: "Nova York / Esperando na Janela", arquivo: "musica/musica33.mp3" },
+	  { nome: "La vita é adesso", arquivo: "musica/musica34.mp3" }
     ];
+
+    let indice = 0;
+    const player = document.getElementById("player");
+    const titulo = document.getElementById("titulo");
+
+    function tocarMusica(index) {
+      const musica = musicas[index];
+      player.src = musica.arquivo;
+      titulo.textContent = "🎵 Tocando: " + musica.nome;
+      player.play().catch((e) => console.error("Erro ao tocar:", e));
+    }
+
+    function proxima() {
+      indice = (indice + 1) % musicas.length;
+      tocarMusica(indice);
+    }
+
+    function voltar() {
+      indice = (indice - 1 + musicas.length) % musicas.length;
+      tocarMusica(indice);
+    }
+
+    function tocarOuPausar() {
+      if (player.paused) {
+        player.play();
+      } else {
+        player.pause();
+      }
+    }
+
+    function tocarAleatorio() {
+      let novoIndice;
+      do {
+        novoIndice = Math.floor(Math.random() * musicas.length);
+      } while (novoIndice === indice && musicas.length > 1);
+      indice = novoIndice;
+      tocarMusica(indice);
+    }
+
+    player.addEventListener("ended", proxima);
+    window.addEventListener("load", () => tocarMusica(indice));
+
+    // Letreiro animado
+    const mensagens = [
+      "Você é especial pra Deus ✝️✨",
+      "Todo ponto de vista é a vista de um ponto. — Leonardo Boff",
+      "Só sei que nada sei. — Sócrates",
+      "Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos. — Provérbios 16:3",
+      "Tudo posso naquele que me fortalece. — Filipenses 4:13"
+    ];
+
+    let mensagemAtual = 0;
+    const campoMensagem = document.getElementById("mensagem");
+
+    function iniciarLetreiro() {
+      campoMensagem.textContent = mensagens[mensagemAtual];
+      campoMensagem.style.animation = "none"; // reset
+      void campoMensagem.offsetWidth; // reflow
+      campoMensagem.style.animation = "deslizarMensagem 60s linear";
+      mensagemAtual = (mensagemAtual + 1) % mensagens.length;
+      setTimeout(iniciarLetreiro, 60000);
+    }
+
+    iniciarLetreiro();
   </script>
-  <script src="script.js"></script>
+<!--/*mostra umaa imagem ou video ou mapa de uma pagina secundaria*/-->
+<!--<iframe src="https://pt.vecteezy.com/fotos-gratis/jesus" width="500" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
 </body>
 </html>

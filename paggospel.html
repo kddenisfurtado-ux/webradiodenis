@@ -3,9 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>Rádio Gospel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bem-vindo à Página Gospel</h1>
-  <p>Tocador de músicas gospel será aqui.</p>
+  <div class="container">
+    <h1>🎧 Rádio Gospel</h1>
+    <p id="titulo">Carregando música gospel...</p>
+
+    <audio id="player" controls></audio>
+
+    <div class="botoes">
+      <button onclick="voltar()">⏮️</button>
+      <button onclick="tocarOuPausar()">⏯️</button>
+      <button onclick="proxima()">⏭️</button>
+      <button onclick="tocarAleatorio()">🔀</button>
+    </div>
+
+    <div class="letreiro">
+      <p id="mensagem">Deus habita no meio dos louvores ✝️🎶</p>
+    </div>
+
+    <div class="menu">
+      <a href="index.html">🏠 Página Principal</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Músicas Gospel específicas
+    const musicas = [
+      { nome: "Campeão Vencedor - Jamily", arquivo: "musica/musica9.mp3" },
+      { nome: "Com Muito Louvor - Ricky Vallen", arquivo: "musica/musica10.mp3" },
+      { nome: "Fé - Roberto Carlos", arquivo: "musica/musica11.mp3" },
+      { nome: "Deixa - Maria Marçal", arquivo: "musica/musica15.mp3" },
+      { nome: "Sobre as Águas", arquivo: "musica/musica16.mp3" },
+      { nome: "Deserto - Maria Marçal", arquivo: "musica/musica18.mp3" }
+    ];
+  </script>
 </body>
 </html>

@@ -44,8 +44,8 @@ const campoMensagem = document.getElementById("mensagem");
 if (campoMensagem) {
   const mensagens = [
     "Você é especial pra Deus ✝️✨",
-    "Louvores que tocam o coração ❤️",
-    "Consagre ao Senhor tudo o que fizer. — Provérbios 16:3",
+    "Todo ponto de vista é a vista de um ponto. — Leonardo Boff",
+    "Consagre ao Senhor em tudo o que faz. — Provérbios 16:3",
     "Tudo posso naquele que me fortalece. — Filipenses 4:13"
   ];
   let mensagemAtual = 0;

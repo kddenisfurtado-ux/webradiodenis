@@ -12,7 +12,7 @@ body {
 
 /* Quadro principal com fundo roxo */
 .container {
-  background-color: #000000; /* roxo */
+  background-color: #A5A5A5; /* roxo */
   padding: 30px;
   border-radius: 20px;
   text-align: center;
@@ -62,6 +62,7 @@ audio {
 
 .letreiro {
   background-color: #000000; /* roxo */
+  width: 400px;
   padding: 30px;
   margin-top: 30px;
   border-radius: 20px;

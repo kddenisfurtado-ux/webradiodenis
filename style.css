@@ -1,5 +1,21 @@
 /* Fundo geral da página */
 
+.menu {
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 25px;
+  margin-left: 20pxb;
+  
+}
+.menu a{
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 25px;
+  margin-left: 20pxb;
+  text-decoration: dotted;
+  
+}
+
 .gospel {
   margin: 0px;
   font-family: 'Segoe UI', sans-serif;

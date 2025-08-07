@@ -1,24 +1,49 @@
 /* Fundo geral da página */
-body {
-  margin: 40px;
+
+.gospel {
+  margin: 0px;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f0f0f0;
+  background-color: hwb(0 100% 0%);
+  opacity: 80%;
  /* display: flex; */
   flex-direction: column;
-  align-items: center;
+ align-items: center;
  justify-content: center;
- /* min-height: 200vh; */
+  max-height: 100%;
+ background-image: url(/imagem/jesus\ cristo.webp);
+ background-repeat: no-repeat;
+ background-position: 600px 20px;
+
+}
+
+.principal {
+  margin: 0px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: hwb(0 100% 0%);
+  opacity: 80%;
+ /* display: flex; */
+  flex-direction: column;
+ align-items: center;
+ justify-content: center;
+  max-height: 100%;
+ background-image: url(/imagem/microfone\ radio.jpg);
+ background-repeat: no-repeat;
+ background-position: 600px 20px;
+
 }
 
 /* Quadro principal com fundo roxo */
 .container {
-  background-color: #A5A5A5; /* roxo */
-  padding: 30px;
-  border-radius: 20px;
+  background-color: hwb(273 0% 1%); /* roxo */
+  margin-top: 10px;
+  padding: 50px;
+  border-radius: 10px;
   text-align: center;
-  color: white;
-  max-width: 90%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+  max-width: 400px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+  flex-direction: column;
+
 }
 
 h1 {
@@ -31,44 +56,44 @@ h1 {
   color: #ffffcc;
 }
 
-audio {
+audio { /*controlador do tocador*/
   width: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.botoes {
+.botoes {  /*controlador do tocador*/
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
 }
 
-.botoes button {
-  background-color: #ffffff33;
+.botoes button { /*formação dos botões*/
+  background-color: #00818aa8;
   border: none;
-  padding: 12px 18px;
+  padding: 10px 20px;
   font-size: 20px;
-  border-radius: 12px;
+  border-radius: 25px;
   color: white;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.botoes button:hover {
-  background-color: #ffffff66;
+.botoes button:hover { /*ao clicar no botaão com cursor qual a cor que assume*/
+  background-color: #ff0000c4;
 }
 
 /* Letreiro inferior */
 
 .letreiro {
-  background-color: #000000; /* roxo */
-  width: 400px;
-  padding: 30px;
+  /*background-color: #1e008a; /* roxo */
+  width: 100%;
+  padding: 40px;
   margin-top: 30px;
-  border-radius: 20px;
+/*border-radius: 20px;*/
   text-align: center;
   color: white;
-  max-width: 90%;
+  max-width: 100%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 }
@@ -93,7 +118,7 @@ audio {
   top: 10px; /* ajuste conforme desejar */
   left: 50%;
   transform: translateX(-50%);
-  background-color: #6600cc;
+  background-color: hwb(108 18% 26%);
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);

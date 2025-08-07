@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Rádio Denis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="principal">
+	
+  <div class="container">
+    <h1>🎧 Web Rádio Denis / POP</h1>
+    <p id="titulo">Carregando música...</p>
+
+    <audio id="player" controls></audio>
+
+    <div class="botoes">
+      <button onclick="voltar()">⏮️</button>
+      <button onclick="tocarOuPausar()">⏯️</button>
+      <button onclick="proxima()">⏭️</button>
+      <button onclick="tocarAleatorio()">🔀</button>
+    </div>
+  </div>
+
+  <div class="letreiro">
+    <p id="mensagem">Você é especial pra Deus ✝️✨</p>
+  </div>
+  <div>
+    <a href="/index.html">Início</a>
+    <a href="/gaucha.html">Gaúchas</a>
+	  <a href="/gospel.html">Gospel</a>
+    <a href="/samba.html">samba</a>
+  </div>
+
+</div>
+  <script>
+    const musicas = [
+      { nome: "Sucesso19", arquivo: "musica/musica19.mp3" },
+	  { nome: "Sucesso Nirvana - Sabe qual é?", arquivo: "musica/musica23.mp3" },
+	  { nome: "Sucesso Gun's - Top de mais né?", arquivo: "musica/musica26.mp3" },
+      { nome: "Quando o Sol bater na Janela do seu quarto", arquivo: "musica/musica20.mp3" },
+	  { nome: "Renato Russo - Scrivimi", arquivo: "musica/Renato Russo - Scrivimi.mp3" },
+      { nome: "Astronauta de mármore", arquivo: "musica/musica24.mp3" },
+      { nome: "Te ver", arquivo: "musica/musica22.mp3" },
+	  { nome: "Renato Russo - La forza della vita", arquivo: "musica/Renato Russo - La forza della vita.mp3" },
+	  { nome: "Dezesseis.mp3", arquivo: "Dezesseis.mp3" },
+	  { nome: "Tempo perdido", arquivo: "musica/musica27.mp3" },
+	  { nome: "Renato Russo - Strani Amori", arquivo: "musica/Renato Russo - Strani Amori.mp3" },
+	  { nome: "La vita é adesso", arquivo: "musica/musica34.mp3" },
+	  { nome: "Vamos Fazer Um Filme", arquivo: "Vamos Fazer Um Filme.mp3" },
+	  { nome: "Renato Russo - Due", arquivo: "musica/Renato Russo - Due.mp3" },
+	  { nome: "Renato Russo - I venti del cuore", arquivo: "musica/Renato Russo - I venti del cuore.mp3" },
+	  { nome: "Legião Urbana - Perfeição", arquivo: "Legião Urbana - Perfeição.mp3" }
+    ];
+
+    let indice = 0;
+    const player = document.getElementById("player");
+    const titulo = document.getElementById("titulo");
+
+    function tocarMusica(index) {
+      const musica = musicas[index];
+      player.src = musica.arquivo;
+      titulo.textContent = "🎵 Tocando: " + musica.nome;
+      player.play().catch((e) => console.error("Erro ao tocar:", e));
+    }
+
+    function proxima() {
+      indice = (indice + 1) % musicas.length;
+      tocarMusica(indice);
+    }
+
+    function voltar() {
+      indice = (indice - 1 + musicas.length) % musicas.length;
+      tocarMusica(indice);
+    }
+
+    function tocarOuPausar() {
+      if (player.paused) {
+        player.play();
+      } else {
+        player.pause();
+      }
+    }
+
+    function tocarAleatorio() {
+      let novoIndice;
+      do {
+        novoIndice = Math.floor(Math.random() * musicas.length);
+      } while (novoIndice === indice && musicas.length > 1);
+      indice = novoIndice;
+      tocarMusica(indice);
+    }
+
+    player.addEventListener("ended", proxima);
+    window.addEventListener("load", () => tocarMusica(indice));
+
+    // Letreiro animado
+    const mensagens = [
+      "Você é especial pra Deus ✝️✨",
+      "Todo ponto de vista é a vista de um ponto. — Leonardo Boff",
+      "Só sei que nada sei. — Sócrates",
+      "Consagre o Senhor em tudo o que faz, e seus planos serão bem-sucedidos. — Provérbios 16:3",
+      "Tudo posso naquele que me fortalece. — Filipenses 4:13"
+    ];
+
+    let mensagemAtual = 0;
+    const campoMensagem = document.getElementById("mensagem");
+
+    function iniciarLetreiro() {
+      campoMensagem.textContent = mensagens[mensagemAtual];
+      campoMensagem.style.animation = "none"; // reset
+      void campoMensagem.offsetWidth; // reflow
+      campoMensagem.style.animation = "deslizarMensagem 60s linear";
+      mensagemAtual = (mensagemAtual + 1) % mensagens.length;
+      setTimeout(iniciarLetreiro, 60000);
+    }
+
+    iniciarLetreiro();
+  </script>
+<!--/*mostra umaa imagem ou video ou mapa de uma pagina secundaria*/-->
+<!--<iframe src="https://pt.vecteezy.com/fotos-gratis/jesus" width="500" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
+</body>
+</html>
+
+
+

@@ -99,7 +99,7 @@ audio { /*controlador do tocador*/
 }
 #mensagem {
   color: white;
-  font-size: 20px;
+  font-size: 50px;
   white-space: nowrap;
   animation: deslizarMensagem 60s linear infinite;
 }

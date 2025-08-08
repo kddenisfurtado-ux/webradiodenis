@@ -16,7 +16,7 @@
 /*ajustes secundario*/
     /*border: 1px solid var(--azulBebe);*/
     border-radius: 25px;
-    cursor: pointer var(--azulMedio);
+    cursor: pointer #151515;
     margin: 10px;
     padding: 10px 20px;
     font-size: 50px;

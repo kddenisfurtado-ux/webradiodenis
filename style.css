@@ -13,16 +13,7 @@
   font-size: 25px;
   margin-left: 20pxb;
   text-decoration: dotted;
-/*ajustes secundario*/
-    /*border: 1px solid var(--azulBebe);*/
-    border-radius: 25px;
-    cursor: pointer #151515;
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 50px;
-    text-align: center;
-    width: 400px;
-    transition: 1.5s;
+  transition: 1.5s;
 }
   
 }
@@ -153,4 +144,136 @@ audio { /*controlador do tocador*/
 
 .letreiro p {
   margin: 0; /* ou ajuste conforme desejado */
+}
+
+:root {
+    --background: #03045E; /* quando colocar -- sereve par dar NOME à cor*/
+    --azulMedio: #0077b6;
+    --azul: #00b4d8;
+    --azulClaro: #90e0ef;
+    --azulBebe: #caf0f8;
+}
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--background);
+}
+
+ul {
+    list-style: none;
+}
+
+.microfone {
+    border: 4px solid var(--azulClaro);
+    border-radius: 25%;
+    height: 350px;
+    width: 350px;
+}
+
+.section1 {
+    display: flex; /*fica um do lado do outro*/
+    flex-direction: column; /*para deixar um ao lado do outro*/
+    align-items: center;
+    height: fit-content; /*vai usar a altura maxima do elemento pai*/
+    margin: 40px;
+    position: relative; /* vai aplicar a relatividade em conjunto com outros elementos do body*/
+
+}
+
+h1,h2 {
+    color: var(--azulBebe);
+    margin-top: 0;
+
+}
+
+h1 {
+    font-size: 100px;
+    font-weight: 10px;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.linkexterno {
+    padding: 24px 16px;
+}
+
+.linkexterno  {
+    /*border: 1px solid var(--azulBebe);*/
+    border-radius: 25px;
+    cursor: pointer var(--azulMedio);
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 50px;
+    text-align: center;
+    width: 400px;
+    transition: 1.5s;
+}
+
+.linkexterno li:not(:last-child) { /*regra para não aplicar mno ultimo filho da lista*/
+    margin-bottom: 10px;
+}
+
+.linkexterno :hover {
+    color: red;
+}
+
+.link2 {
+    color: var(--azulMedio);
+    font-size: 100px;
+    margin: 10px 30px;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Para ficar atrás do conteúdo */
+}
+
+
+
+.linkexterno a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin: 5px auto;
+  border: 2px solid #00f;
+  color: #00f;
+  background-color: transparent;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.linkexterno a:hover {
+  background-color: #00f;
+  color: #fff;
 }

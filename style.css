@@ -13,6 +13,17 @@
   font-size: 25px;
   margin-left: 20pxb;
   text-decoration: dotted;
+/*ajustes secundario*/
+    /*border: 1px solid var(--azulBebe);*/
+    border-radius: 25px;
+    cursor: pointer var(--azulMedio);
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 50px;
+    text-align: center;
+    width: 400px;
+    transition: 1.5s;
+}
   
 }
 

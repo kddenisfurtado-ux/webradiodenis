@@ -172,8 +172,7 @@ h2 {
   font-family: 'Segoe UI', sans-serif;
   background-color: hwb(0 100% 0%);
   opacity: 80%;
- /* display: flex; */
-  flex-direction: column;
+ flex-direction: row-reverse;
  align-items: center;
  justify-content: center;
   max-height: 100%;
@@ -278,3 +277,4 @@ audio { /*controlador do tocador*/
 .letreiro p {
   margin: 0; /* ou ajuste conforme desejado */
 }
+

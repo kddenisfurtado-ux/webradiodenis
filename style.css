@@ -152,18 +152,18 @@ h2 {
 }
 
 .gospel {
-  margin: 0px;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: hwb(0 100% 0%);
-  opacity: 80%;
- /* display: flex; */
-  flex-direction: column;
+ display: flex;
+ margin: 0px;
+ font-family: 'Segoe UI', sans-serif;
+ background-color: hwb(0 100% 0%);
+ opacity: 80%;
+ /*flex-direction: column;*/
  align-items: center;
  justify-content: center;
-  max-height: 100%;
- background-image: url(/imagem/jesus\ cristo.webp);
+ max-height: 100%;
+ /*background-image: url(/imagem/jesus\ cristo.webp);
  background-repeat: no-repeat;
- background-position: 600px 20px;
+ background-position: 600px 20px;*/
 
 }
 
@@ -277,4 +277,5 @@ audio { /*controlador do tocador*/
 .letreiro p {
   margin: 0; /* ou ajuste conforme desejado */
 }
+
 
